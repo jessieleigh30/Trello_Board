@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
-  before_action :set_list , only: [:show, :edit, :update]
   before_action :set_board
+  before_action :set_list , only: [:show, :edit, :update, :destroy]
+  
   
   def index
     @lists = @board.lists.all
@@ -34,15 +35,18 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    @list.destroy
+    redirect_to @board
   end
 
   private
-  def set_board
-    @board = Board.find(params[:board_id])
-  end
 
   def set_list
     @list = List.find(params[:id])
+  end
+
+  def set_board
+    @board = Board.find(params[:board_id])
   end
 
   def list_params

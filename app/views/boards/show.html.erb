@@ -1,8 +1,8 @@
-<h1><%= @board.name %> Lists</h1>
+<h1><%= @board.name %></h1>
 <ul>
     <% @lists.each do |list| %>
         <li>
-            <%= link_to list.name, board_list_path(list) %>
+            <%= link_to list.name, board_list_path(@board, list) %>
         </li>
     <% end %>
 </ul>
