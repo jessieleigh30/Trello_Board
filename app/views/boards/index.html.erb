@@ -1,7 +1,14 @@
-<br />
-<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
-<h2><%= current_user.first_name %>'s Boards</h2>
-<hr />
+<html>
+<div class="navbar-fixed">
+    <nav>
+    <div class="nav-wrapper">
+    <a href="#!" class="brand-logo"><%= current_user.first_name %>'s Boards</a>
+        <ul class="left hide-on-med-and-down"></ul>
+    </div>
+    </nav>
+</div>
+</html>
+
 <ul>
     <% @boards.each do |board| %>
         <li>
@@ -10,3 +17,8 @@
     <% end %>
 </ul>
 <%= link_to "Add Board", new_board_path %><br />
+<br />
+
+<button class="btn waves-effect waves-light" >
+<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+</button>
