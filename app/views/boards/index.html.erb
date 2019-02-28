@@ -1,24 +1,17 @@
-<html>
-<div class="navbar-fixed">
-    <nav>
-    <div class="nav-wrapper">
-    <a href="#!" class="brand-logo"><%= current_user.first_name %>'s Boards</a>
-        <ul class="left hide-on-med-and-down"></ul>
-    </div>
-    </nav>
+<div class="board container">
+
+<div class="user">
+  <h2><%= current_user.first_name %>'s Workspace </h2>
+<%= link_to "Add New Board", new_board_path, class: "ui button #A9A9A9" %>
 </div>
-</html>
-
 <ul>
-    <% @boards.each do |board| %>
-        <li>
-            <%= link_to board.name, board %>
-        </li>
+  <% @boards.each do |board| %>
+    <%= link_to board do %>
+      <li class = "board">
+        <%= board.name %>
+      </li>
     <% end %>
+  <% end %>
 </ul>
-<%= link_to "Add Board", new_board_path %><br />
-<br />
 
-<button class="btn waves-effect waves-light" >
-<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
-</button>
+</div>

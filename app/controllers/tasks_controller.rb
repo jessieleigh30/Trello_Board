@@ -29,6 +29,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @board = Board.find(@list.board_id)
+    @task.destroy
+    redirect_to board_list_path(@board, @list)
   end
 
   private

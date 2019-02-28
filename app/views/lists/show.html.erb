@@ -1,11 +1,16 @@
-<h1><%= @list.name %></h1>
-<ul>
-<% @tasks.each do |task| %>
-    <li>
-        <%= task.name %>
-    </li>
-<% end %>
-</ul>
+<div class = "user">
 
-<%= link_to "Add a Task to this List", new_list_task_path(@list) %><br />
-<%= link_to 'Delete this List', board_list_path(@board, @list), method: :delete %>
+
+<h1><%= @list.name %></h1>
+
+<%= link_to 'Delete List', board_list_path(@board, @list), method: :delete, class:"ui button #FF3B3F" %>
+<%= link_to "New Task", new_list_task_path(@list), class:"ui button #FF3B3F" %><br />
+<br/>
+<br/>
+    <ul>
+    <% @tasks.each do |task| %>
+        <li class = "list">
+            <%= task.name %>
+        </li>
+    <% end %>
+</ul>
